@@ -66,7 +66,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
          ExceptionDetails exceptionDetails = ExceptionDetails.builder()
                 .timestamp(LocalDateTime.now())
                 .status(statusCode.value())
-                .title(ex.getCause().getMessage())
+                .title(ex.getMessage()) //repetitivo, antes era ex.getCause().getMessage, mas o getCause() retorna null
                 .details(ex.getMessage())
                 .developerMessage(ex.getClass().getName())
                 .build();
